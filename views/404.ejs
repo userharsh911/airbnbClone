@@ -1,0 +1,27 @@
+<%- include('partials/head') %>
+<%- include('partials/nav') %>
+
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh;">
+        <h1 style="font-size: 5rem; color: #ff385c; margin-bottom: 0.5em; letter-spacing: 2px; text-shadow: 2px 2px 8px #ffd6e0;">
+            404
+        </h1>
+        <p style="font-size: 2rem; color: #222; margin-bottom: 1em;">
+            Oops! Page not found.
+        </p>
+        <a href="/" style="padding: 0.7em 2em; background: linear-gradient(90deg, #ff385c 40%, #ffb400 100%); color: #fff; border-radius: 30px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 14px rgba(255,56,92,0.15); transition: transform 0.2s;">
+            Go Home
+        </a>
+    </div>
+    <script>
+        // Simple floating animation for 404
+        document.querySelector('h1').animate([
+            { transform: 'translateY(0px)' },
+            { transform: 'translateY(-20px)' },
+            { transform: 'translateY(0px)' }
+        ], {
+            duration: 2000,
+            iterations: Infinity
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<%- include('../partials/head') %>
+<%- include('../partials/nav') %>
+    <div class="min-h-screen bg-gradient-to-br from-blue-100 via-white to-red-100 py-12">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl font-extrabold text-blue-800 mb-8 text-center drop-shadow-lg tracking-tight">
+                Welcome to <span class="text-red-500"></span> Host home page
+            </h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 px-4">
+                <% houseData.forEach(house => { %>
+                    <div class="bg-white rounded-2xl shadow-xl p-7 flex flex-col items-center border-2 border-blue-100 hover:border-red-200 transition-all duration-300 group">
+                        <div class="w-36 h-36 mb-5 rounded-2xl overflow-hidden shadow-lg border-4 border-blue-300 group-hover:border-red-400 transition-all duration-300">
+                            <img src="<%= house.photoUrl %>" alt="House Image" class="w-full h-full object-cover group-hover:scale-105 group-hover:brightness-95 transition-all duration-300">
+                        </div>
+                        <div class="text-2xl font-bold text-blue-900 mb-1 group-hover:text-red-500 transition">
+                            <%= house.HouseName %>
+                        </div>
+                        <div class="text-base text-gray-600 mb-2 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-400 group-hover:text-red-400 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 12.414a4 4 0 10-5.657 5.657l4.243 4.243a8 8 0 1011.314-11.314l-4.243 4.243z"></path>
+                            </svg>
+                            <span class="font-medium"><%= house.Location %></span>
+                        </div>
+                        <div class="text-xl text-green-600 font-semibold mb-4">
+                            ₹ <%= house.Price %> <span class="text-gray-500 text-base font-normal">/ night</span>
+                        </div>
+                        <div class="flex gap-3 mt-2">
+                            <a href="/host/host-home-list/<%= house['_id']%>?editing=true" class="px-5 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition font-semibold">Edit</a>
+                            <form action="/host/del/<%= house._id%>" method="post">
+                                <!-- <input type="hidden" name="id" value="<%= house.id%>"> -->
+                                <button type="submit" class="px-5 py-2 hover:cursor-pointer bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition font-semibold">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
