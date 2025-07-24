@@ -11,4 +11,4 @@ cd airbnbClone
 npm install
 
 # Start the dev server
-npm run dev
+npm start
